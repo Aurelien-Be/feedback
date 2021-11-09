@@ -67,6 +67,10 @@ TEMPLATES = [
         },
     },
 ]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    'static'),
+
 
 WSGI_APPLICATION = 'feedback.wsgi.application'
 
