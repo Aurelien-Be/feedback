@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import FormView
+from django.views.generic.edit import CreateView
 
 from .forms import ReviewForm
 #to access to datas for the view list class:
@@ -49,15 +49,22 @@ from .models import Review
 
 #or even more specific, the FormView:
 
-class ReviewView(FormView):
-    form_class = ReviewForm
-    template_name = "reviews/review.html"  #thieses 2 lines replace the get method
-    #for the post:
-    success_url = "/thank-you"
+#class ReviewView(FormView):
+#    form_class = ReviewForm
+#    template_name = "reviews/review.html"  #thieses 2 lines replace the get method
+#    #for the post:
+#    success_url = "/thank-you"
 
-    def form_valid(self, form):
-        form.save()
-        return super().form_valid(form)
+#    def form_valid(self, form):
+#        form.save()
+#        return super().form_valid(form)
+
+#shorter with CreateView, save automatically
+class ReviewView(CreateView):
+    model = Review
+    form_class = ReviewForm
+    template_name = "reviews/review.html"
+    success_url = "/thank-you"
 
 #if only get and template, use TemplateView :
      
