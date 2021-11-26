@@ -134,3 +134,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = BASE_DIR / "uploads"
 
 MEDIA_URL = "/user-media/" #part of the url exposed for accessing to the uploaded files
+
+#how long a session cookie, so the session, survives, in secondes. By default, it is 2 weeks.
+#SESSION_COOKIE_AGE = 
